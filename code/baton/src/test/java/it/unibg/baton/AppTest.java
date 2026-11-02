@@ -1,4 +1,4 @@
-package it.unibg;
+package it.unibg.baton;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
