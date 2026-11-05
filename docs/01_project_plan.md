@@ -3,7 +3,7 @@
 Progetto svolto da Spampatti Nicolò (Matr. 1099040), Magri Marco (Matr. 1100084), Giovanni Ghilardi (Matr. 1099052), Matteo Piffari (Matr. 1099051)
 
 ## 1. Introduzione
-Baton è un software sviluppato in Java per creare automazioni basate su nodi. Baton si ispira ai più noti progetti come [n8n](https://n8n.io/) oppure [Node-RED(https://nodered.org/)]. Lo sviluppo punta a realizzare un prodotto portabile, affidabile e manutenibile, dotato di un motore di esecuzione facilmente estendibile e di una interfaccia per collegare visualmente i vari blocchi.
+Baton è un software sviluppato in Java per creare automazioni basate su blocchi. Baton si ispira ai più noti progetti come [n8n](https://n8n.io/) oppure [Node-RED](https://nodered.org/). Lo sviluppo punta a realizzare un prodotto portabile, affidabile e manutenibile, dotato di un motore di esecuzione facilmente estendibile e di un'interfaccia per collegare visualmente i vari blocchi.
 
 ## 2. Modello di Processo
 Il team seguirà un ciclo di vita basato sul modello RAD (Rapid Application Development). Questo approccio permetterà di adattarsi agilmente durante lo sviluppo e di arrivare rapidamente a prototipi funzionanti da testare in circa 60-90 giorni.
@@ -27,14 +27,14 @@ Il team è costituito da quattro sviluppatori (Spampatti, Magri, Ghilardi, Piffa
 Per l'ingegneria del software verrà ampiamente utilizzato StarUML (versione 5) per tracciare Use Case, Class Diagram (con successiva autogenerazione del codice scheletro), State Machine, Sequence, Activity, Component e Package Diagram. Il testing verrà effettuato tramite casi di test JUnit mantenuti all'interno di una directory dedicata del progetto Maven (`/test/java/`).
 
 ## 9. Garanzia di qualità
-La qualità del codice sarà garantita dal rispetto delle logiche dell'Information Hiding, dall'utilizzo coerente del polimorfismo, dal basso accoppiamento tra i package e dall'applicazione di design pattern mirati. L'affidabilità in fase di runtime (gestione nodi in errore) sarà validata dai test di unità. 
+La qualità del codice sarà garantita dal rispetto delle logiche dell'Information Hiding, dall'utilizzo coerente del polimorfismo, dal basso accoppiamento tra i package e dall'applicazione di design pattern mirati. L'affidabilità in fase di runtime (gestione blocchi in errore) sarà validata dai test di unità. 
 
 ## 10. Pacchetti di lavoro (workpackages)
 Le macro-attività (o workpackages) individuate sono:
 * **WP**: Elicitazione e raffinamento dei Requisiti.
 * **WP**: Progettazione e generazione architettura UML.
 * **WP**: Creazione base dati (SQLite) e logica di salvataggio/esportazione progetti.
-* **WP**: Sviluppo del motore di esecuzione interno e dei nodi (Trigger, Lettura, Calcolo, Scrittura).
+* **WP**: Sviluppo del motore di esecuzione interno e dei blocchi (Trigger, Lettura, Calcolo, Scrittura).
 * **WP**: Creazione UI grafica e logica di connessione blocchi.
 * **WP**: Sviluppo test JUnit e stesura della documentazione finale, 0.
 

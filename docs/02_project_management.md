@@ -4,7 +4,7 @@
 Il nostro team seguirà RAD (Rapid Application Development).
 La decisione di utilizzare il RAD è dettata dalla necessità di avere un prodotto funzionante e testabile entro la scadenza del progetto, mitigando totalmente il rischio di arrivare alla consegna "a mani vuote". Avendo a disposizione un team di quattro persone, un approccio puramente sequenziale (come il Waterfall) rallenterebbe inutilmente la fase di implementazione a causa di un'eccessiva documentazione preventiva.
 Il RAD, al contrario, ci permette di:
-* Sviluppare in modo iterativo, concentrando gli sforzi per avere una *core build* dell'applicativo (il motore a nodi di Baton) funzionante fin dalle prime settimane.
+* Sviluppare in modo iterativo, concentrando gli sforzi per avere una *core build* dell'applicativo (il motore a blocchi di Baton) funzionante fin dalle prime settimane.
 * Testare e integrare il codice continuamente, garantendo che ogni nuova feature aggiunta non rompa quanto già implementato.
 * Adattare i requisiti in base al tempo effettivamente rimanente prima dell'esame, avendo sempre in mano una versione stabile e presentabile del software.
 
