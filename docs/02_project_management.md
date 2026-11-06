@@ -55,7 +55,7 @@ Gli strumenti utilizzati sono:
 
 * **Git e GitHub** per versionare codice, documentazione e modelli;
 * **GitHub Issues** per requisiti, attività, difetti e change request;
-* **GitHub Projects – Baton Development** per visualizzare lo stato del lavoro;
+* **GitHub Projects – Baton Development**, con board Kanban, per pianificare i timebox e visualizzare lo stato del lavoro;
 * **Pull Request** per integrare le modifiche nel branch stabile;
 * **code review** per verificare le modifiche prima dell'integrazione;
 * **Discord** per la comunicazione rapida e il coordinamento del team;
@@ -67,18 +67,20 @@ Nel repository vengono versionati il codice sorgente, la documentazione, i model
 
 Nel progetto il ruolo viene indicato con un'unica denominazione coerente: **Nicolò Spampatti è il Configuration Manager**, che svolge anche la funzione di Direttore dei Lavori e Capo Progetto.
 
+Il codice è suddiviso in tre package Java, ciascuno affidato a un responsabile: `core`, `ui` e `persistence`. Se necessario, i package potranno essere separati in moduli denominati `baton-[nome package]` (per esempio `baton-core`, `baton-ui` e `baton-persistence`).
+
 | Ruolo | Assegnatario | Responsabilità |
 | :--- | :--- | :--- |
-| **Configuration Manager / Capo Progetto** | Nicolò Spampatti | Definizione delle regole di configurazione, supervisione del repository, controllo dell'integrazione, approvazione finale delle PR destinate a `main`, gestione dei conflitti complessi e coordinamento delle decisioni tecniche. |
-| **Sviluppatore** | Marco Magri | Implementazione delle funzionalità assegnate, creazione dei branch, commit tracciabili, apertura delle PR e partecipazione alle review. |
-| **Sviluppatore** | Giovanni Ghilardi | Implementazione e integrazione del codice, gestione del workspace Eclipse, aggiornamento dei modelli e partecipazione alle review. |
-| **Sviluppatore** | Matteo Piffari | Sviluppo delle funzionalità assegnate, segnalazione e verifica dei bug, aggiornamento degli Issue e collaborazione nelle review. |
+| **Configuration Manager / Responsabile Core** | Nicolò Spampatti | Definizione delle regole di configurazione, supervisione del repository, controllo dell'integrazione, gestione dei conflitti complessi e coordinamento delle decisioni tecniche. Sviluppo del package `core`: motore di esecuzione (`baton-engine`), modello dei blocchi, porte e collegamenti. |
+| **Responsabile Persistenza** | Matteo Piffari | Sviluppo del package `persistence`: integrazione del database SQLite, CRUD dei flow chart e dei progetti, esportazione e caricamento. |
+| **Responsabile UI** | Giovanni Ghilardi | Sviluppo del package `ui`: editor grafico, collegamento dei blocchi, modifica dei parametri e gestione dei progetti dall'interfaccia. |
+| **Sviluppatore Blocchi** | Marco Magri | Implementazione dei blocchi concreti a partire dalle astrazioni del `core` e supporto allo sviluppo della UI; interviene nelle aree che richiedono più lavoro. |
 
-Gli incarichi operativi possono cambiare in base al carico di lavoro, ma l'autorità di integrazione sul branch `main` rimane associata al Configuration Manager.
+Tutti i membri partecipano alle code review e possono approvare le Pull Request. Gli incarichi possono cambiare in base al carico di lavoro: nelle fasi avanzate, quando `core` e `persistence` saranno completati, i rispettivi responsabili supporteranno lo sviluppo delle altre aree. Il Configuration Manager resta responsabile delle regole di integrazione sul branch `main`.
 
 ### 2.3 Issue, Project Board e tracciabilità
 
-Ogni attività significativa viene rappresentata da un Issue o da una Pull Request collegata a un Issue. La Project Board **Baton Development** usa le seguenti colonne di stato:
+Ogni attività significativa viene rappresentata da un Issue o da una Pull Request collegata a un Issue. Il GitHub Project **Baton Development** organizza le attività in una board Kanban con le seguenti colonne di stato:
 
 | Colonna GitHub Projects | Significato nel workflow |
 | :--- | :--- |
@@ -106,11 +108,11 @@ Il flusso di integrazione è il seguente:
 3. i commit vengono pubblicati sul repository e il branch viene aggiornato rispetto a `main` quando necessario;
 4. lo sviluppatore apre una Pull Request collegata all'Issue, descrivendo obiettivo, modifiche e verifiche effettuate;
 5. almeno un altro membro del team esegue la code review e segnala eventuali correzioni;
-6. dopo la risoluzione dei commenti, Nicolò Spampatti, in qualità di Configuration Manager, approva la PR destinata a `main`;
+6. dopo la risoluzione dei commenti, un membro del team diverso dall'autore approva la PR;
 7. il merge viene eseguito solo quando la review è conclusa, i controlli previsti hanno esito positivo e non risultano conflitti irrisolti;
 8. dopo il merge, l'Issue e la card della Project Board vengono aggiornati.
 
-La code review di un collega è necessaria per il controllo tecnico, ma non sostituisce l'approvazione finale del Configuration Manager. Quest'ultimo può richiedere ulteriori verifiche o rifiutare l'integrazione se la modifica non è coerente con l'architettura, la documentazione o la qualità attesa.
+Tutti i membri del team possono approvare le Pull Request ed è sufficiente una sola approvazione, purché di un membro diverso dall'autore; la regola vale anche per le PR aperte dal Configuration Manager. Il Configuration Manager vigila sulla coerenza delle integrazioni e può richiedere ulteriori verifiche se una modifica non è coerente con l'architettura, la documentazione o la qualità attesa.
 
 ### 2.5 Modifiche e baseline
 
@@ -120,7 +122,7 @@ Una versione integrata su `main` costituisce una baseline del prodotto. Le modif
 
 ### 3.1 Struttura del team
 
-Il team è composto da quattro sviluppatori che collaborano con una struttura **SWAT (Skilled Workers with Advanced Tools)**. La scelta è adatta a un gruppo piccolo e tecnico: ogni membro contribuisce direttamente ad analisi, progettazione, implementazione, test e documentazione, invece di essere confinato a un solo ruolo specialistico.
+Il team è composto da quattro sviluppatori che collaborano con una struttura **SWAT (Skilled Workers with Advanced Tools)**. La scelta è adatta a un gruppo piccolo e tecnico: ogni membro è responsabile di un'area del sistema (sezione 2.2), ma contribuisce direttamente ad analisi, progettazione, implementazione, test e documentazione, invece di essere confinato a un solo ruolo specialistico.
 
 La struttura non significa assenza di coordinamento. Il Configuration Manager mantiene la visione complessiva del prodotto, facilita le decisioni tecniche e interviene quando il lavoro parallelo rischia di produrre moduli incompatibili. Le responsabilità operative sono distribuite, mentre le decisioni di integrazione seguono il processo definito nella sezione di Configuration Management.
 
