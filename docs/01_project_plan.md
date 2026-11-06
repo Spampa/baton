@@ -6,7 +6,7 @@ Progetto svolto da Nicolò Spampatti (Matr. 1099040), Marco Magri (Matr. 1100084
 Baton è un software sviluppato in Java per creare automazioni basate su blocchi. Baton si ispira ai più noti progetti come [n8n](https://n8n.io/) oppure [Node-RED](https://nodered.org/). Lo sviluppo punta a realizzare un prodotto portabile, affidabile e manutenibile, dotato di un motore di esecuzione facilmente estendibile e di un'interfaccia per collegare visualmente i vari blocchi. Il modo di operare adottato è incrementale, nello specifico secondo il modello RAD (Rapid Application Development).
 
 ## 2. Modello di Processo
-Il team seguirà un ciclo di vita incrementale basato sul modello RAD (Rapid Application Development). Il lavoro sarà organizzato in timebox di due settimane, ciascuno dei quali produrrà un incremento funzionante da integrare e verificare. Le fasi RAD saranno rappresentate da milestone: Requirements Planning (6 novembre 2026), un unico ciclo User Design & Construction (20 dicembre 2026) e Cutover (6 gennaio 2027). Per non spostare la scadenza, a ogni incremento si applicherà MoSCoW: se il tempo residuo non è sufficiente, si ridurrà lo scope rinviando o escludendo le funzionalità Could Have e Won't Have. Il calendario complessivo va dal 2 novembre 2026 al 6 gennaio 2027; i dettagli dei timebox sono descritti nel documento di Project Management (sezione 1.2).
+Il team seguirà un ciclo di vita incrementale basato sul modello RAD (Rapid Application Development). Il lavoro sarà organizzato in timebox di durata massima di 17 giorni, tendenzialmente di due settimane, ciascuno dei quali produrrà un incremento funzionante da integrare e verificare. Le fasi RAD saranno rappresentate da milestone: Requirements Planning (8 novembre 2026), un unico ciclo User Design & Construction (20 dicembre 2026) e Cutover (6 gennaio 2027). Per non spostare la scadenza, a ogni incremento si applicherà MoSCoW: se il tempo residuo non è sufficiente, si ridurrà lo scope rinviando o escludendo le funzionalità Could Have. Il calendario complessivo va dal 2 novembre 2026 al 6 gennaio 2027; i dettagli dei timebox sono descritti nel documento di Project Management (sezione 1.2).
 
 ## 3. Organizzazione del Progetto
 Il gruppo si auto-organizzerà adottando la struttura di un Team SWAT. I ruoli saranno fluidi in base alle necessità del momento. Il coordinamento avverrà tramite la Kanban board di GitHub, le pull request per la validazione del lavoro e l'uso di Discord per la comunicazione rapida.
@@ -36,19 +36,19 @@ Per l'ingegneria del software verrà ampiamente utilizzato StarUML (versione 5) 
 La qualità del codice sarà garantita dal rispetto delle logiche dell'Information Hiding, dall'utilizzo coerente del polimorfismo, dal basso accoppiamento tra i package e dall'applicazione di design pattern mirati. Ogni Pull Request dovrà ricevere una review obbligatoria prima dell'integrazione. I test JUnit relativi al codice modificato dovranno essere inclusi nella stessa Pull Request del codice. L'affidabilità in fase di runtime (gestione blocchi in errore) sarà validata dai test di unità.
 
 ## 10. Pacchetti di lavoro (workpackages)
-Le macro-attività (o workpackages) individuate sono:
-* **WP1**: Elicitazione e raffinamento dei requisiti.
-* **WP2**: Progettazione e generazione dell'architettura UML.
-* **WP3**: Creazione della base dati (SQLite) e logica di salvataggio/esportazione dei progetti.
-* **WP4**: Sviluppo del motore di esecuzione interno e dei blocchi (Trigger, Lettura, Calcolo, Scrittura).
-* **WP5**: Creazione della UI grafica e logica di connessione dei blocchi.
-* **WP6**: Sviluppo dei test JUnit e stesura della documentazione finale.
+Le macro-attività (o workpackages) individuate sono riportate di seguito, con i timebox in cui vengono svolte (vedi Project Management, sezione 1.2):
+* **WP1** (TB0): Elicitazione e raffinamento dei requisiti.
+* **WP2** (TB1): Progettazione e generazione dell'architettura UML.
+* **WP3** (TB2): Creazione della base dati (SQLite) e logica di salvataggio/esportazione dei progetti.
+* **WP4** (TB1–TB2): Sviluppo del motore di esecuzione interno e dei blocchi (Trigger, Lettura, Trasformazione testo, Calcolo, Condizione, Scrittura).
+* **WP5** (TB1–TB2): Creazione della UI grafica e logica di connessione dei blocchi.
+* **WP6** (TB1–TB4): Sviluppo dei test e stesura della documentazione finale.
 
 ## 11. Risorse
 Oltre alle postazioni hardware personali dei membri, le risorse primarie includono gli ambienti di sviluppo (Eclipse), tool di modellazione UML (StarUML), strumenti Java (Java 21, Maven e JUnit), una libreria UI ancora da definire, il DB (SQLite) e il repository (GitHub).
 
 ## 12. Budget e programma
-Il progetto non prevede alcun budget economico. Le milestone del programma sono Requirements Planning il 6 novembre 2026, User Design & Construction il 20 dicembre 2026 e Cutover il 6 gennaio 2027. Il lavoro è organizzato in timebox di due settimane; il project plan deve essere approvato tramite Issue entro il 14 dicembre 2026 e l'esame è previsto per il 14 gennaio 2027. Lo sviluppo e il commit finale devono concludersi entro il 6 gennaio 2027.
+Il progetto non prevede alcun budget economico. Le milestone del programma sono Requirements Planning l'8 novembre 2026, User Design & Construction il 20 dicembre 2026 e Cutover il 6 gennaio 2027. Il lavoro è organizzato in timebox di durata massima di 17 giorni, tendenzialmente di due settimane; il project plan deve essere approvato tramite Issue entro il 14 dicembre 2026 e l'esame è previsto per il 14 gennaio 2027. Lo sviluppo e il commit finale devono concludersi entro il 6 gennaio 2027.
 
 ## 13. Cambiamenti
 Data l'adozione del paradigma RAD, le modifiche in corso d'opera sono previste. Ogni cambiamento sostanziale ad architettura o requisiti dovrà essere discusso dal team e formalizzato all'interno di una specifica Pull Request o Issue su GitHub per poterne tenere traccia nella history.
