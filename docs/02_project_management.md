@@ -20,18 +20,15 @@ La scelta del RAD riduce il rischio di concentrare l'integrazione e la verifica 
 
 ### 1.2 Timebox e incremento del prodotto
 
-La data dell'appello non è ancora fissata; per questo motivo il calendario è espresso relativamente alla consegna finale. `T` indica la data prevista per la presentazione, mentre `T-n` indica il periodo che termina `n` settimane prima di `T`. Le durate sono indicative e possono essere adattate dal team senza modificare il modello di processo.
+Il calendario è allineato alle fasi del RAD e alle milestone del progetto su GitHub. Ogni timebox corrisponde a un'iterazione del GitHub Project e contribuisce alla milestone della fase in cui ricade; la scadenza della milestone è la data entro cui i deliverable della fase devono essere completati.
 
-| Timebox | Periodo indicativo | Obiettivo principale | Attività e deliverable |
-| :--- | :--- | :--- | :--- |
-| TB1 | T-10 / T-9 | Avvio e consolidamento dei requisiti | Raffinamento dell'SRS, glossario, casi d'uso iniziali, definizione delle priorità e dei criteri di accettazione. |
-| TB2 | T-8 / T-7 | Progettazione del dominio e dell'architettura | Diagrammi UML iniziali, class diagram, package/component diagram e prima architettura del motore e della UI. |
-| TB3 | T-6 | Core build del motore | Modello dei blocchi, porte e collegamenti, validazione dei tipi, gestione degli errori e prima esecuzione seriale. |
-| TB4 | T-5 | Persistenza e blocchi Must Have | Integrazione SQLite, CRUD dei flow chart, trigger manuale, lettura, trasformazione, calcolo e scrittura su file. |
-| TB5 | T-4 | Interfaccia e integrazione | Editor grafico, collegamento dei blocchi, modifica dei parametri, gestione dei progetti e integrazione con `baton-engine`. |
-| TB6 | T-3 | Verifica e funzionalità successive | Test JUnit, correzione dei difetti, eventuale sviluppo di requisiti Should Have compatibili con il tempo residuo. |
-| TB7 | T-2 | Stabilizzazione | Code review complessiva, test di regressione, completamento della documentazione, verifica dell'importazione in Eclipse e controllo degli artefatti del repository. |
-| TB8 | T-1 / T | Consegna | Congelamento delle funzionalità, risoluzione dei problemi bloccanti, aggiornamento finale della documentazione e preparazione della presentazione. |
+| Timebox | Periodo | Milestone (scadenza) | Obiettivo principale | Attività e deliverable |
+| :--- | :--- | :--- | :--- | :--- |
+| TB0 | 02/11/2026 – 08/11/2026 | Requirements Planning (08/11/2026) | Avvio e consolidamento dei requisiti | Stesura e raffinamento dell'SRS, glossario, casi d'uso iniziali, definizione delle priorità MoSCoW e dei criteri di accettazione, piano di progetto. |
+| TB1 | 09/11/2026 – 22/11/2026 | User Design & Construction (20/12/2026) | Progettazione e core build del motore | Diagrammi UML (class, package/component diagram), generazione dello scheletro Java, modello dei blocchi, porte e collegamenti, validazione dei tipi, gestione degli errori e prima esecuzione seriale. |
+| TB2 | 23/11/2026 – 06/12/2026 | User Design & Construction (20/12/2026) | Persistenza, blocchi Must Have e interfaccia | Integrazione SQLite, CRUD dei flow chart, trigger manuale, blocchi di lettura, trasformazione, calcolo e scrittura su file, editor grafico e integrazione con `baton-engine`. |
+| TB3 | 07/12/2026 – 20/12/2026 | User Design & Construction (20/12/2026) | Verifica e funzionalità successive | Test JUnit, correzione dei difetti, eventuale sviluppo di requisiti Should Have compatibili con il tempo residuo. |
+| TB4 | 21/12/2026 – 06/01/2027 | Cutover (06/01/2027) | Stabilizzazione e consegna | Code review complessiva, test di regressione, congelamento delle funzionalità, completamento della documentazione, verifica dell'importazione in Eclipse e preparazione della presentazione. |
 
 Alla fine di ogni timebox il team valuta l'incremento ottenuto, i difetti aperti e il tempo rimanente. Le funzionalità non completate possono essere rinviate, ridimensionate o escluse secondo la priorità già definita nell'SRS; ogni modifica sostanziale ai requisiti o all'architettura viene registrata tramite Issue o Pull Request.
 
