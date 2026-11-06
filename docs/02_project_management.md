@@ -24,7 +24,7 @@ Il calendario è allineato alle fasi del RAD e alle milestone del progetto su Gi
 
 | Timebox | Periodo | Milestone (scadenza) | Obiettivo principale | Attività e deliverable |
 | :--- | :--- | :--- | :--- | :--- |
-| TB0 | 02/11/2026 – 08/11/2026 | Requirements Planning (08/11/2026) | Avvio e consolidamento dei requisiti | Stesura e raffinamento dell'SRS, glossario, casi d'uso iniziali, definizione delle priorità MoSCoW e dei criteri di accettazione, piano di progetto. |
+| TB0 | 02/11/2026 – 08/11/2026 | Requirements Planning (08/11/2026) | Avvio e consolidamento dei requisiti | Stesura e raffinamento dell'SRS, glossario, casi d'uso iniziali, definizione delle priorità MoSCoW, piano di progetto. |
 | TB1 | 09/11/2026 – 22/11/2026 | User Design & Construction (20/12/2026) | Progettazione e core build del motore | Diagrammi UML (class, package/component diagram), generazione dello scheletro Java, modello dei blocchi, porte e collegamenti, validazione dei tipi, gestione degli errori e prima esecuzione seriale. |
 | TB2 | 23/11/2026 – 06/12/2026 | User Design & Construction (20/12/2026) | Persistenza, blocchi Must Have e interfaccia | Integrazione SQLite, CRUD dei flow chart, trigger manuale, blocchi di lettura, trasformazione, calcolo e scrittura su file, editor grafico e integrazione con `baton-engine`. |
 | TB3 | 07/12/2026 – 20/12/2026 | User Design & Construction (20/12/2026) | Verifica e funzionalità successive | Test JUnit, correzione dei difetti, eventuale sviluppo di requisiti Should Have compatibili con il tempo residuo. |
