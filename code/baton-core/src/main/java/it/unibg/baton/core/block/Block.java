@@ -10,8 +10,8 @@ public abstract class Block {
 	private final String name;
 	private final String description;
 	
-	private Port inputPort;
-	private Port outputPort;
+	private final Port inputPort;
+	private final Port outputPort;
 	
 	public Block(String name, String description, List<Field<?>> inputs, List<Field<?>> outputs) {
 		this.name = name;
@@ -20,6 +20,14 @@ public abstract class Block {
 		this.outputPort = new Port(outputs);
 	}
 	
+	public Port getInputPort() {
+		return inputPort;
+	}
+
+	public Port getOutputPort() {
+		return outputPort;
+	}
+
 	// trattiamo i field come hashmap di String, Object dove String è il nome del capo
 	public final Map<String, Object> run(Map<String, Object> values) throws ValidationException {
 		Map<String, Object> in = inputPort.validate(values);
