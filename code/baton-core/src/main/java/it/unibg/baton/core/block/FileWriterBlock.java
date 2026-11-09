@@ -18,7 +18,8 @@ public class FileWriterBlock extends Block{
 	
 	public FileWriterBlock() {
 		super("FileWriterBlock", 
-				"This block allows you to write a string to a file, if the file does not exist it will be created, if it exists it will be overwritten, the path is mandatory even if the file does not exist.",
+				"This block allows you to write a string to a file, if the file does not exist it will be created, "
+				+ "if it exists it will be overwritten, the path is mandatory even if the file does not exist.",
 				List.of(filePathField, contentField), //input fields
 				List.of(errorField)  //output fields
 				

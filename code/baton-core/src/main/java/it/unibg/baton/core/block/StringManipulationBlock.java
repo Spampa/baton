@@ -12,7 +12,7 @@ public class StringManipulationBlock extends Block {
 	// input due stringhe
 	
 	private static final TextField string1 = new TextField("string1", "String to manipulate", true);
-	private static final TextField string2 = new TextField("string2", "", true);
+	private static final TextField string2 = new TextField("string2", "", false); //string2 non è obbligatoria per tutte le operazioni, ad esempio per toUpperCase e toLowerCase
 	
 	//input operazioni da effettuare sulle due stringhe
 	private static final String CONCATENATE = "concatenate";
@@ -57,10 +57,10 @@ public class StringManipulationBlock extends Block {
 				return Map.of(resultField.getName(), get(in, string1).substring(start, end));
 				
 			case TO_UPPERCASE:
-				return Map.of(resultField.getName(), get(in, string1).toUpperCase());
+				return Map.of(resultField.getName(), get(in, string1).toUpperCase()); //in questo caso string2 non è necessaria, quindi non la uso e non va usata
 				
 			case TO_LOWERCASE:
-				return Map.of(resultField.getName(), get(in, string1).toLowerCase());
+				return Map.of(resultField.getName(), get(in, string1).toLowerCase()); //in questo caso string2 non è necessaria, quindi non la uso e non va usata
 				
 			case OCCURRENCE:
 				// conta le occorrenze di string2 in string1
