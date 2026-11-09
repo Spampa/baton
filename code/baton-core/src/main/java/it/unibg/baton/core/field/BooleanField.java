@@ -1,14 +1,8 @@
 package it.unibg.baton.core.field;
 
-public final class BooleanField implements Field<Boolean> {
-    private final String name;
-    private final String description;
-    private final boolean isRequired;
-	
+public final class BooleanField extends Field<Boolean> {
 	public BooleanField(String name, String description, boolean isRequired) {
-		this.name = name;
-		this.description = description;
-		this.isRequired = isRequired;
+		super(name, description, isRequired, Boolean.class);
 	}
 	
 	@Override
@@ -24,25 +18,4 @@ public final class BooleanField implements Field<Boolean> {
 	                "not a valid boolean (expected 'true' or 'false')");
 	    };
 	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	@Override
-	public boolean isRequired() {
-		return isRequired;
-	}
-
-	@Override
-	public Class<Boolean> getType() {
-		return Boolean.class;
-	}
-
 }

@@ -1,14 +1,8 @@
 package it.unibg.baton.core.field;
 
-public final class TextField implements Field<String> {
-    private final String name;
-    private final String description;
-    private final boolean isRequired;
-	
+public final class TextField extends Field<String> {
 	public TextField(String name, String description, boolean isRequired) {
-		this.name = name;
-		this.description = description;
-		this.isRequired = isRequired;
+		super(name, description, isRequired, String.class);
 	}
 
 	@Override
@@ -18,26 +12,6 @@ public final class TextField implements Field<String> {
 	    }
 	    
 		return raw;
-	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	@Override
-	public boolean isRequired() {
-		return isRequired;
-	}
-
-	@Override
-	public Class<String> getType() {
-		return String.class;
 	}
 
 	@Override

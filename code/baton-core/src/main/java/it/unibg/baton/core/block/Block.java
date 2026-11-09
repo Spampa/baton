@@ -39,4 +39,8 @@ public abstract class Block {
 	public String getDescription() {
 		return description;
 	}
+	
+	protected static <T> T get(Map<String, Object> in, String key, Field<T> field) {
+	    return field.getType().cast(in.get(key));
+	}
 }

@@ -1,10 +1,9 @@
-package it.unibg.baton.core;
+package it.unibg.baton.core.block;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import it.unibg.baton.core.block.Port;
 import it.unibg.baton.core.field.NumericField;
 
 class PortTest {
@@ -16,5 +15,6 @@ class PortTest {
     	NumericField duplicate = new NumericField("a", "same name", true);
     	assertThrows(IllegalArgumentException.class, () -> new Port(List.of(required, duplicate)));
     }
+    
     
 }
