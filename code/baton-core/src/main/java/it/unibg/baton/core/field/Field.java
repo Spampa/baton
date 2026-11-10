@@ -7,7 +7,7 @@ public abstract sealed class Field<T> permits NumericField, TextField, BooleanFi
     private final Class<T> type;
 
     protected Field(String name, String description, boolean required, Class<T> type) {
-        if (name == null || name.isBlank() || name.contains(".")) {
+        if (name == null || name.isBlank() || name.contains(".") || name.contains(" ")) {
             throw new IllegalArgumentException("Invalid field name: " + name);
         }
         this.name = name;

@@ -45,6 +45,10 @@ public final class SelectField extends Field<String> {
         return options.stream().map(Option::name).toList();
     }
     
+    public List<Option> getOptions() {
+        return options;
+    }
+    
     public List<Field<?>> fieldFor(String fieldName) {
     	for(Option option : options) {
     		if(option.name() == fieldName) {
