@@ -16,7 +16,7 @@ public class Input { // input sempre validati essendo generato dopo la validazio
 	
     public String getText(String key)      { return get(key, String.class); }
     public BigDecimal getNumeric(String key)  { return get(key, BigDecimal.class); }
-    public boolean getBoolean(String key)    { return get(key, Boolean.class); }
+    public Boolean getBoolean(String key)    { return get(key, Boolean.class); }
 	
     private <T> T get(String key, Class<T> type) {
         Field<?> field = index.get(key);

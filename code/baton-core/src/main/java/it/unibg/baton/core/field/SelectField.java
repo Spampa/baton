@@ -10,7 +10,7 @@ public final class SelectField extends Field<String> {
         if (options == null || options.isEmpty()) {
         	throw new IllegalArgumentException("SelectField requires at least one option");
         } 
-        if (options.stream().distinct().count() != options.size()) {
+        if (options.stream().map(Option::name).distinct().count() != options.size()) {
         	throw new IllegalArgumentException("SelectField options must be unique");
         }
         
@@ -51,7 +51,7 @@ public final class SelectField extends Field<String> {
     
     public List<Field<?>> fieldFor(String fieldName) {
     	for(Option option : options) {
-    		if(option.name() == fieldName) {
+    		if(option.name().equals(fieldName)) {
     			return option.fields();
     		}
     	}
