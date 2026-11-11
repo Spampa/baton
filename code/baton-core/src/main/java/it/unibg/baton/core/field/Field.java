@@ -1,14 +1,29 @@
 package it.unibg.baton.core.field;
 
-public sealed interface Field<T> permits NumericField, TextField, BooleanField, SelectField {
-	public String getName();
-	public String getDescription();
-	public boolean isRequired();
-	Class<T> getType();
+public abstract sealed class Field<T> permits NumericField, TextField, BooleanField, SelectField {
+    private final String name;
+    private final String description;
+    private final boolean required;
+    private final Class<T> type;
+
+    protected Field(String name, String description, boolean required, Class<T> type) {
+        if (name == null || name.isBlank() || name.contains(".") || name.contains(" ")) {
+            throw new IllegalArgumentException("Invalid field name: " + name);
+        }
+        this.name = name;
+        this.description = description;
+        this.required = required;
+        this.type = type;
+    }
+
+    public final String getName() { return name; }
+    public final String getDescription() { return description; }
+    public final boolean isRequired() { return required; }
+    public final Class<T> getType() { return type; }
 	
-	public T parse(String raw) throws FieldParseException;
+	public abstract T parse(String raw) throws FieldParseException;
 	
-	default T coerce(Object o) throws FieldParseException {
+	public T coerce(Object o) throws FieldParseException {
 		if(o instanceof String s) { // priorità al parsing in raw questo permette alla select di funzionare sempre
 			return parse(s);
 		} if(getType().isInstance(o)) {

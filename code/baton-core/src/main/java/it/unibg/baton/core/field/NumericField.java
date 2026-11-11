@@ -2,15 +2,9 @@ package it.unibg.baton.core.field;
 
 import java.math.BigDecimal;
 
-public final class NumericField implements Field<BigDecimal> { // final significa non estendibile da altre classi
-    private final String name;
-    private final String description;
-    private final boolean isRequired;
-	
+public final class NumericField extends Field<BigDecimal> { // final significa non estendibile da altre classi
 	public NumericField(String name, String description, boolean isRequired) {
-		this.name = name;
-		this.description = description;
-		this.isRequired = isRequired;
+		super(name, description, isRequired, BigDecimal.class);
 	}
 
 	@Override
@@ -24,27 +18,6 @@ public final class NumericField implements Field<BigDecimal> { // final signific
 	        throw new FieldParseException(this, raw,
 	                "not a valid number (use '.' as decimal separator)", e);
 	    }
-	}
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
-
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	@Override
-	public boolean isRequired() {
-		return isRequired;
-	}
-
-	@Override
-	public Class<BigDecimal> getType() {
-		return BigDecimal.class;
 	}
 	
 }
