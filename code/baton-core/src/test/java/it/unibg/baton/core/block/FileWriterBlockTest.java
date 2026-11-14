@@ -1,7 +1,7 @@
 package it.unibg.baton.core.block;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 class FileWriterBlockTest {
 
-	// JUnit crea questa cartella temporanea in automatico e la distrugge a fine test
+	//JUnit crea questa cartella temporanea in automatico e la distrugge a fine test
 	@TempDir
 	Path tempDir;
 
@@ -23,23 +23,23 @@ class FileWriterBlockTest {
 		
 		FileWriterBlock block = new FileWriterBlock();
 		
-		// 1. Definisco il path del file all'interno della cartella temporanea sicura
+		//Definisco il path del file all'interno della cartella temporanea sicura
 		Path filePath = tempDir.resolve("test_output.txt");
 		String contentToTest = "Contenuto generato dal test di Baton";
 		
-		// 2. Eseguo il blocco
+		//Eseguo il blocco
 		Map<String, Object> result = block.run(Map.of(
 				"filePath", filePath.toString(),
 				"ContentToWrite", contentToTest
 		));
 		
-		// 3. Verifica: il metodo exec() ritorna null
-		assertNull(result, "Il risultato deve essere null come definito nel blocco");
+		//Verifica se il metodo exec() ritorna null
+		assertTrue(result.isEmpty(), "Il risultato deve essere una mappa vuota ({})");
 		
-		// 4. Verifica: il file è stato effettivamente creato nel file system?
+		//Verifica se il file è stato effettivamente creato nel file system
 		assertTrue(Files.exists(filePath), "Il file dovrebbe esistere nel percorso specificato");
 		
-		// 5. Verifica: il contenuto scritto dentro al file è corretto?
+		//Verifica se il contenuto scritto dentro al file è corretto?
 		String writtenContent = Files.readString(filePath);
 		assertEquals(contentToTest, writtenContent, "Il contenuto del file non corrisponde a quello atteso");
 	}
@@ -49,11 +49,11 @@ class FileWriterBlockTest {
 		
 		FileWriterBlock block = new FileWriterBlock();
 		
-		// Creo un path verso una sottocartella che non esiste per scatenare appositamente un errore
+		//Creo un path verso una sottocartella che non esiste per scatenare appositamente un errore
 		String invalidPath = tempDir.resolve("cartella_inventata/test_output.txt").toString();
 		String contentToTest = "Non scriverà mai questo contenuto";
 		
-		// Mi aspetto che il tuo blocco catturi l'eccezione nativa e lanci la tua IllegalStateException
+		//Mi aspetto che il blocco catturi l'eccezione parta l' IllegalStateException
 		IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
 			block.run(Map.of(
 					"filePath", invalidPath,
@@ -61,9 +61,7 @@ class FileWriterBlockTest {
 			));
 		});
 		
-		// Verifico anche che il messaggio di errore contenga il prefisso che hai impostato tu
+		//Verifico che il messaggio di errore contenga il prefisso giusto
 		assertTrue(exception.getMessage().startsWith("Error writing to file:"));
 	}
 }
-
-//da fixare
