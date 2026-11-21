@@ -20,7 +20,7 @@ class SelectFieldTest {
 								new NumericField("b", "second", true)
 							)
 						),
-					new Option("text and number", "option that allow a text and a numeric field",
+					new Option("text_and_number", "option that allow a text and a numeric field",
 						List.of(
 							new TextField("text", "first", true),
 							new NumericField("number", "second", false)

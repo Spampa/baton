@@ -50,4 +50,12 @@ public abstract class Block {
 	protected static <T> T get(Map<String, Object> in, Field<T> field) {
 	    return field.getType().cast(in.get(field.getName()));
 	}
+	
+	public boolean input(String key) {
+		return inputPort.getIndex().get(key) != null;
+	}
+	
+	public boolean output(String key) {
+		return outputPort.getIndex().get(key) != null;
+	}
 }
