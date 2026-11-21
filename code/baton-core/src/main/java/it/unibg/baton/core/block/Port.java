@@ -17,10 +17,10 @@ public class Port {
 	private final Map<String, Field<?>> index; // indicizzazione dei campi usando notazione padre.figlio
 	
 	public Port(List<Field<?>> fields) throws IllegalArgumentException {
-		this.fields = fields;
+		this.fields = List.copyOf(fields); // copia immutabile
 		Map<String, Field<?>> index = new LinkedHashMap<String, Field<?>>();
 		generateIndexFields(fields, "", index);
-		this.index = index;
+		this.index = Map.copyOf(index);
 	}
 	
 	private void generateIndexFields(List<Field<?>> fields, String prefix, Map<String, Field<?>> index) {
@@ -28,7 +28,7 @@ public class Port {
 			String key = prefix.isEmpty() ? field.getName() : prefix + "." + field.getName();
 			
 			if(index.putIfAbsent(key, field) != null) {
-				throw new IllegalArgumentException("Duplicated %s field name" + field.getName());
+				throw new IllegalArgumentException("Duplicated field name '%s'".formatted(key));
 			}
 			
 			if(field instanceof SelectField select) {
@@ -63,9 +63,9 @@ public class Port {
 			String key = key(prefix, field); // crea la nuova chiave con aggiunta di . in base al nodo nidificato visitato
 			Object raw = values.get(key);
 			
-			if(raw == null) {
+			if(raw == null || (raw instanceof String s && s.isEmpty())) {
 				if(field.isRequired()) {
-					errors.add(new FieldParseException(field, null, "no value provided"));
+					errors.add(new FieldParseException(field, null, "no value provided for '%s'".formatted(key)));
 				}
 				continue;
 			}
